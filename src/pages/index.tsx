@@ -48,4 +48,7 @@ export default function IndexPage() {
   );
 }
 
-export const dataLoader = defineDataLoader(updateModelName);
+export const dataLoader = defineDataLoader(()=>{
+  console.log('dataloader in page');
+  
+});

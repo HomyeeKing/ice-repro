@@ -5,11 +5,12 @@ import store from '@/store';
 import { defineDataLoader, useData } from 'ice';
 import { updateModelName } from '@/services';
 
-console.log('out page');
+console.log('exec page out component');
 
 export default function IndexPage() {
   const [hudongModel] = store.useModel('model');
-console.log('in component');
+  console.log('exec page in component');
+
 
   return (
     <div className={styles.app}>
@@ -52,6 +53,6 @@ console.log('in component');
 }
 
 export const dataLoader = defineDataLoader(()=>{
-  console.log('dataloader in page');
+  console.log('exec dataloader in page');
   
 });

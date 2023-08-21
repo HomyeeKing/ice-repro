@@ -4,6 +4,7 @@ import { defineAppConfig, defineDataLoader } from 'ice';
 export default defineAppConfig(() => ({
 }));
 
+console.log('in app');
 
 export const dataLoader = defineDataLoader(async () => {
  console.log('dataloader in app');

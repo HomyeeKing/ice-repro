@@ -5,8 +5,11 @@ import store from '@/store';
 import { defineDataLoader, useData } from 'ice';
 import { updateModelName } from '@/services';
 
+console.log('out page');
+
 export default function IndexPage() {
   const [hudongModel] = store.useModel('model');
+console.log('in component');
 
   return (
     <div className={styles.app}>

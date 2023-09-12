@@ -14,7 +14,7 @@ export default function IndexPage() {
 
   return (
     <div className={styles.app}>
-      <header>
+      <header x-if={1}>
         <img src={logo} alt='logo' />
         <p>{hudongModel.name}</p>
       </header>

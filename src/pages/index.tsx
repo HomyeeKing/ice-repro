@@ -4,14 +4,10 @@ import styles from './index.module.css';
 import store from '@/store';
 import { defineDataLoader, useData } from 'ice';
 import { updateModelName } from '@/services';
-
-console.log('exec page out component');
+import { isWeb } from '@/const';
 
 export default function IndexPage() {
   const [hudongModel] = store.useModel('model');
-  console.log('exec page in component');
-
-
   return (
     <div className={styles.app}>
       <header x-if={1}>
@@ -52,7 +48,12 @@ export default function IndexPage() {
   );
 }
 
-export const dataLoader = defineDataLoader(()=>{
-  console.log('exec dataloader in page');
-  
+export const dataLoader = defineDataLoader(async () => {
+  if (isWeb) {
+    console.log('[page dataloader] run in client');
+    return 1;
+  } else {
+    console.log('[page dataloader] run in server');
+    return 2;
+  }
 });

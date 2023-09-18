@@ -13,6 +13,6 @@ export default defineConfig(() => ({
     onDemand: true,
     format: 'esm',
   },
-  ssr: true,
+  ssr: false,
   ssg: false,
 }));

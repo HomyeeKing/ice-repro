@@ -50,10 +50,10 @@ export default function IndexPage() {
 
 export const dataLoader = defineDataLoader(async () => {
   if (isWeb) {
-    console.log('[page dataloader] run in client');
+    console.log('[order] [page dataloader] run in client');
     return 1;
   } else {
-    console.log('[page dataloader] run in server');
+    console.log('[order] [page dataloader] run in server');
     return 2;
   }
 });

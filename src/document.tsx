@@ -6,6 +6,8 @@ import { AppData } from '@ice/runtime/types';
 import { unstable_useDocumentData } from '@ice/runtime';
 
 export const dataLoader = defineDataLoader(() => {
+  console.log('[order] run in document dataloader');
+  
   return 1;
 });
 
@@ -13,7 +15,6 @@ export default function Document() {
   // Get document data when fallback to document only.
   const documentData = unstable_useDocumentData();
 
-  console.log('document data', documentData);
   return (
     <html>
       <head>

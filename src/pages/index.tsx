@@ -1,59 +1,14 @@
 import { useState } from 'react';
-import logo from '@/assets/logo.png';
 import styles from './index.module.css';
-import store from '@/store';
-import { defineDataLoader, useData } from 'ice';
-import { updateModelName } from '@/services';
-import { isWeb } from '@/const';
+import Mod1 from '@/components/mod1';
+import Mod2 from '@/components/mod2';
 
 export default function IndexPage() {
-  const [hudongModel] = store.useModel('model');
+  const [data, setdata] = useState();
+  console.log('data', data);
   return (
     <div className={styles.app}>
-      <header x-if={1}>
-        <img src={logo} alt='logo' />
-        <p>{hudongModel.name}</p>
-      </header>
-      <main>
-        <button
-          className={styles.button}
-          type='button'
-          onClick={() => {
-            store.getModelDispatchers('model').setName('bar');
-          }}
-        >
-          click to update name
-        </button>
-        <p>
-          <a
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={styles.link}
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            href='https://v3.ice.work/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={styles.link}
-          >
-            Learn ice.js
-          </a>
-        </p>
-      </main>
+      <Mod2 setData={setdata} />
     </div>
   );
 }
-
-export const dataLoader = defineDataLoader(async () => {
-  if (isWeb) {
-    console.log('[order] [page dataloader] run in client');
-    return 1;
-  } else {
-    console.log('[order] [page dataloader] run in server');
-    return 2;
-  }
-});
